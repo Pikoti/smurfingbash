@@ -7,7 +7,7 @@ smurfs=(
         heftysmurf
 )
 
-color=(
+title=(
 	smurfname:  
 )
 
@@ -18,12 +18,15 @@ echo $today
 echo $last_week_today
 day=$last_week_today
 
-
 while [ $day != $today ]; do
     echo $i; 
     for smurf in "${smurfs[@]}"
     do
-        printf "%s, %s \n" $color $smurf+$day;
+        printf "%s\n" $title ;
+    done
+     for smurf in "${smurfs[@]}"
+    do
+        printf "\t%s\n" $smurf+$day;
     done
     next_day=$(date -d "$day +1 days" +"%Y-%m-%d")
     day=$next_day
