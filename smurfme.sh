@@ -19,8 +19,11 @@ while [ $day != $today ]; do
     header="$header,$day"
     for smurf in "${smurfs[@]}"
     do
-        results[$smurf]="${results[$smurf]},$smurf+$day" 
-    done 
+        results[$smurf]="${results[$smurf]},$smurf+$day"
+        #curl https://github.com/e-lulu > curlsmurf 2>/dev/null 
+        curl https://github.com/e-lulu > curlsmurf 2>/dev/null &
+    done
+    wait;
     next_day=$(date -d "$day +1 days" +"%Y-%m-%d")
     day=$next_day
 done 
